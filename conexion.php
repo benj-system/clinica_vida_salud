@@ -1,10 +1,12 @@
 <?php
-// conexion.php - Conexión a PostgreSQL local
-$host = 'localhost';
-$port = '5432';
-$dbname = 'clinica_vida_salud';
-$user = 'postgres';
-$password = 'Eliane'; // ¡Asegúrate de que esta sea tu contraseña real de PostgreSQL!
+// Archivo: conexion.php
+// Descripción: Conexión a PostgreSQL compatible con Localhost y Railway
+
+$host = getenv('DB_HOST') ?: 'localhost';
+$port = getenv('DB_PORT') ?: '5432';
+$dbname = getenv('DB_NAME') ?: 'clinica_vida_salud';
+$user = getenv('DB_USER') ?: 'postgres';
+$password = getenv('DB_PASSWORD') ?: 'Eliane'; // En local usará Eliane, en la nube las variables
 
 try {
     $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
