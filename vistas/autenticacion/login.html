@@ -1,0 +1,60 @@
+<!DOCTYPE html>  <!--login.html-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Vida Salud - Iniciar Sesión</title>
+    <link rel="stylesheet" href="../../estilos/login.css">
+</head>
+<body>
+    <div class="contenedor-login">
+        <div class="caja-login">
+            <div class="logo">
+                <h1>🏥 Clínica Vida Salud</h1>
+                <p>Sistema de Gestión de Citas Médicas</p>
+            </div>
+
+            <form id="formulario-login" method="POST" action="../../controladores/autenticacion.php">
+                <div class="grupo-formulario">
+                    <label for="nombre_usuario">Usuario:</label>
+                    <input
+                        type="text"
+                        id="nombre_usuario"
+                        name="nombre_usuario"
+                        placeholder="Ingrese su usuario"
+                        required
+                        autocomplete="username"
+                    >
+                </div>
+
+                <div class="grupo-formulario">
+                    <label for="contrasena">Contraseña:</label>
+                    <input
+                        type="password"
+                        id="contrasena"
+                        name="contrasena"
+                        placeholder="Ingrese su contraseña"
+                        required
+                        autocomplete="current-password"
+                    >
+                </div>
+
+                <div id="mensaje-error" class="mensaje-error">{{MENSAJE_ERROR}}</div>
+
+                <button type="submit" class="boton-login">Iniciar Sesión</button>
+            </form>
+
+            <div class="pie-login">
+                <p>Sistema seguro con autenticación por contraseña encriptada.</p>
+                <p class="credenciales-demo">
+                    <strong>Demo:</strong><br>
+                    Admin: admin / admin123<br>
+                    Médico: dr.mamani / medico123
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../scripts/login.js"></script>
+</body>
+</html>

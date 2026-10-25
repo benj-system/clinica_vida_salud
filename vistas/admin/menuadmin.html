@@ -1,0 +1,38 @@
+<!--menuadmin.html-->
+<!-- Menu Principal para Administrador -->
+<div class="tarjeta">
+    <h2>📊 Dashboard Administrativo</h2>
+    <p>Bienvenido al panel de administración de Clínica Vida Salud.</p>
+</div>
+
+<div class="grid-estadisticas">
+    <div class="estadistica">
+        <h3>Pacientes Registrados</h3>
+        <div class="valor" id="total-pacientes">0</div>
+    </div>
+    <div class="estadistica">
+        <h3>Médicos Activos</h3>
+        <div class="valor" id="total-medicos">0</div>
+    </div>
+    <div class="estadistica">
+        <h3>Citas Programadas</h3>
+        <div class="valor" id="total-citas">0</div>
+    </div>
+    <div class="estadistica">
+        <h3>Usuarios del Sistema</h3>
+        <div class="valor" id="total-usuarios">0</div>
+    </div>
+</div>
+
+<div class="tarjeta">
+    <h2>⚙️ Opciones de Administración</h2>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 20px;">
+        <button class="boton boton-primario" onclick="cargarSeccion('usuarios')">👥 Gestionar Usuarios</button>
+        <button class="boton boton-primario" onclick="cargarSeccion('medicos')">👨‍⚕️ Gestionar Médicos</button>
+        <button class="boton boton-primario" onclick="cargarSeccion('especialidades')">🏥 Especialidades</button>
+        <button class="boton boton-primario" onclick="cargarSeccion('horarios')">⏰ Horarios Médicos</button>
+        <button class="boton boton-primario" onclick="cargarSeccion('reportes')">📈 Ver Reportes</button>
+    </div>
+</div>
+
+<script src="../../scripts/admin/menuadmin.js"></script>

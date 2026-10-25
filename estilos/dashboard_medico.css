@@ -1,0 +1,375 @@
+/* ============================================================================
+   dashboard_medico.css - Estilos específicos del Dashboard del Médico
+   Extiende dashboard.css con estilos personalizados para la gestión de citas
+   ============================================================================ */
+
+/* ============================================================================
+   TABLA DE CITAS
+   ============================================================================ */
+
+.tabla-contenedor {
+    overflow-x: auto;
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-citas {
+    font-size: 14px;
+}
+
+.tabla-citas thead {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    font-weight: 600;
+}
+
+.tabla-citas th {
+    padding: 16px;
+    text-align: left;
+    white-space: nowrap;
+}
+
+.tabla-citas td {
+    padding: 14px 16px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.tabla-citas tbody tr {
+    transition: all 0.3s ease;
+    background-color: white;
+}
+
+.tabla-citas tbody tr:hover {
+    background-color: #f8f9fa;
+    box-shadow: inset 0 0 8px rgba(102, 126, 234, 0.08);
+}
+
+/* Clases de estado para filas */
+.fila-cita.estado-programada {
+    border-left: 4px solid #3498db;
+}
+
+.fila-cita.estado-atendida {
+    border-left: 4px solid #27ae60;
+}
+
+.fila-cita.estado-cancelada {
+    border-left: 4px solid #e74c3c;
+    opacity: 0.8;
+}
+
+.fila-cita.estado-inasistencia {
+    border-left: 4px solid #f39c12;
+}
+
+/* Celdas específicas */
+.celda-fecha {
+    font-weight: 600;
+    color: #667eea;
+}
+
+.celda-hora {
+    color: #555;
+    font-weight: 500;
+}
+
+.celda-paciente {
+    color: #333;
+}
+
+.celda-paciente strong {
+    display: block;
+    margin-bottom: 2px;
+}
+
+.celda-especialidad {
+    color: #666;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.celda-estado {
+    text-align: center;
+}
+
+.celda-acciones {
+    text-align: center;
+    white-space: nowrap;
+}
+
+/* ============================================================================
+   BADGES DE ESTADO
+   ============================================================================ */
+
+.badge-estado {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+}
+
+.badge-programada {
+    background-color: #d6eaf8;
+    color: #3498db;
+}
+
+.badge-atendida {
+    background-color: #d5f4e6;
+    color: #27ae60;
+}
+
+.badge-cancelada {
+    background-color: #fadbd8;
+    color: #e74c3c;
+}
+
+.badge-inasistencia {
+    background-color: #fef5e7;
+    color: #f39c12;
+}
+
+/* ============================================================================
+   BOTONES MINI (ACCIONES EN TABLA)
+   ============================================================================ */
+
+.boton-mini {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    margin: 0 4px;
+    border: none;
+    border-radius: 50%;
+    background-color: #ecf0f1;
+    color: #333;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    align-content: center;
+    text-align: center;
+    line-height: 32px;
+}
+
+.boton-mini:hover {
+    transform: scale(1.1);
+}
+
+.boton-ver {
+    background-color: #d6eaf8;
+    color: #3498db;
+}
+
+.boton-ver:hover {
+    background-color: #3498db;
+    color: white;
+}
+
+.boton-editar {
+    background-color: #fef5e7;
+    color: #f39c12;
+}
+
+.boton-editar:hover {
+    background-color: #f39c12;
+    color: white;
+}
+
+.boton-cancelar {
+    background-color: #fadbd8;
+    color: #e74c3c;
+}
+
+.boton-cancelar:hover {
+    background-color: #e74c3c;
+    color: white;
+}
+
+/* ============================================================================
+   TARJETA DE AGENDA
+   ============================================================================ */
+
+.tarjeta-agenda {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.tarjeta-agenda h2 {
+    color: #333;
+    font-size: 20px;
+    margin-bottom: 25px;
+    border-bottom: 3px solid #667eea;
+    padding-bottom: 15px;
+}
+
+/* ============================================================================
+   ESTADÍSTICAS PERSONALIZADAS
+   ============================================================================ */
+
+.grid-estadisticas .estadistica {
+    background: white;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    border-top: 4px solid #667eea;
+    transition: all 0.3s ease;
+}
+
+.grid-estadisticas .estadistica:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.12);
+}
+
+.grid-estadisticas .estadistica h3 {
+    color: #999;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+}
+
+.grid-estadisticas .estadistica .valor {
+    color: #667eea;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+/* ============================================================================
+   FILTROS Y BÚSQUEDA (Opcional)
+   ============================================================================ */
+
+.filtro-contenedor {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.filtro-grupo {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.filtro-grupo label {
+    font-size: 12px;
+    font-weight: 600;
+    color: #666;
+    text-transform: uppercase;
+}
+
+.filtro-grupo input,
+.filtro-grupo select {
+    padding: 10px;
+    border: 2px solid #ecf0f1;
+    border-radius: 5px;
+    font-size: 13px;
+    font-family: inherit;
+}
+
+.filtro-grupo input:focus,
+.filtro-grupo select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* ============================================================================
+   RESPONSIVE - TABLETS
+   ============================================================================ */
+
+@media (max-width: 768px) {
+    .tabla-citas {
+        font-size: 12px;
+    }
+
+    .tabla-citas th,
+    .tabla-citas td {
+        padding: 10px 8px;
+    }
+
+    .celda-especialidad {
+        display: none;
+    }
+
+    .boton-mini {
+        width: 28px;
+        height: 28px;
+        line-height: 28px;
+        font-size: 14px;
+        margin: 0 2px;
+    }
+
+    .tarjeta-agenda h2 {
+        font-size: 18px;
+    }
+
+    .grid-estadisticas .estadistica .valor {
+        font-size: 28px;
+    }
+}
+
+/* ============================================================================
+   RESPONSIVE - MÓVILES
+   ============================================================================ */
+
+@media (max-width: 480px) {
+    .tabla-contenedor {
+        overflow-x: auto;
+    }
+
+    .tabla-citas {
+        font-size: 11px;
+        min-width: 500px;
+    }
+
+    .tabla-citas th,
+    .tabla-citas td {
+        padding: 8px 6px;
+    }
+
+    .celda-hora,
+    .celda-especialidad,
+    .celda-acciones {
+        display: none;
+    }
+
+    .fila-cita {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 0;
+    }
+
+    .boton-mini {
+        width: 24px;
+        height: 24px;
+        line-height: 24px;
+        font-size: 12px;
+    }
+
+    .grid-estadisticas {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .grid-estadisticas .estadistica {
+        padding: 20px;
+    }
+
+    .grid-estadisticas .estadistica .valor {
+        font-size: 24px;
+    }
+
+    .tarjeta-agenda h2 {
+        font-size: 16px;
+    }
+
+    .filtro-contenedor {
+        flex-direction: column;
+        gap: 10px;
+    }
+}
