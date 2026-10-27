@@ -1,19 +1,33 @@
 <?php
-// Archivo: conexion.php
-// Descripción: Conexión a PostgreSQL compatible con Localhost y Railway
+// conexion.php
+// Detecta si estamos en Railway (usando DATABASE_URL) o en local (usando variables)
 
-$host = getenv('DB_HOST') ?: 'localhost';
-$port = getenv('DB_PORT') ?: '5432';
-$dbname = getenv('DB_NAME') ?: 'clinica_vida_salud';
-$user = getenv('DB_USER') ?: 'postgres';
-$password = getenv('DB_PASSWORD') ?: 'Eliane'; // En local usará Eliane, en la nube las variables
+$databaseUrl = getenv('DATABASE_URL');
 
-try {
-    $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
-    $pdo = new PDO($dsn, $user, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-    error_log("Error de conexión: " . $e->getMessage());
-    die("Error interno del servidor. Por favor, intente más tarde.");
+if ($databaseUrl) {
+    // Estamos en Railway: usamos la URL completa que nos da la plataforma
+    try {
+        $pdo = new PDO($databaseUrl);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        error_log("Error de conexión en Railway: " . $e->getMessage());
+        die("Error interno del servidor. Por favor, intente más tarde.");
+    }
+} else {
+    // Estamos en Localhost: usamos las credenciales de tu PC
+    $host = 'localhost';
+    $port = '5432';
+    $dbname = 'clinica_vida_salud';
+    $user = 'postgres';
+    $password = 'Eliane'; // Tu contraseña local
+
+    try {
+        $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
+        $pdo = new PDO($dsn, $user, $password);
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    } catch (PDOException $e) {
+        error_log("Error de conexión local: " . $e->getMessage());
+        die("Error interno del servidor. Por favor, intente más tarde.");
+    }
 }
 ?>
