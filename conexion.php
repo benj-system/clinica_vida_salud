@@ -11,7 +11,7 @@ if ($databaseUrl) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         error_log("Error de conexión en Railway: " . $e->getMessage());
-        die("Error interno del servidor. Por favor, intente más tarde.");
+        die("Error interno del servidor. Por favor, intente más tarde XD.");
     }
 } else {
     // Estamos en Localhost: usamos las credenciales de tu PC
@@ -27,7 +27,7 @@ if ($databaseUrl) {
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     } catch (PDOException $e) {
         error_log("Error de conexión local: " . $e->getMessage());
-        die("Error interno del servidor. Por favor, intente más tarde.");
+        die("Error interno del servidor. Por favor, intente más tarde  FX.");
     }
 }
 ?>
